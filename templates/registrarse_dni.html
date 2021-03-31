@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Registrarse</title>
+
+  <style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+
+</head>
+
+<body>
+
+
+  <div>
+  <form action="/charge_dni" method="POST" class="form-inline tm-search-form" enctype="multipart/form-data">
+    <label for="fname">Primer Nombre</label>
+    <input type="text" id="fname" name="nombre_p" placeholder="Tu primer nombre ..." required>
+
+    <label for="sname">Segundo Nombre</label>
+    <input type="text" id="sname" name="nombre_s" placeholder="Tu segundo nombre ..." required>
+
+    <label for="papel">Apellido Paterno</label>
+    <input type="text" id="papel" name="apellido_p" placeholder="Tu apellido paterno ..." required>
+
+    <label for="mapel">Apellido Materno</label>
+    <input type="text" id="mapel" name="apellido_m" placeholder="Tu apellido materno ..." required>
+
+    <label for="fdni">Número de DNI</label>
+    <input type="number" id="fdni" name="dni" placeholder="Tu número de DNI ..." minlength="8" maxlength="8" required>
+
+    <label for="idni">Imagen de DNI</label>
+    <input type="file" id="idni" name="archivo" accept="image/png, .jpeg, .jpg" required>
+  
+    <input type="submit" value="Enviar">
+  </form>
+</div>
+<div>
+  <form action="/" class="form-inline tm-search-form">
+    <input class='btn-be' type=submit value='Regresar al Inicio'>
+  </form>
+</div>
+<div><strong>{{ result.img_format }}</strong></div>
+</body>
+</html>

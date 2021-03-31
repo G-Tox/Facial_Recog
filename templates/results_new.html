@@ -1,0 +1,29 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>Resultados de reconocimiento</title>
+      <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+  </head>
+  <body>
+    
+    <h3>Persona</h3>
+    <div class="container">
+      <div>
+        <img src="{{ result.image_path }}" class="img-rounded" width="400" height="300">
+      </div>
+    </div>
+    
+
+    <h3>Registro:</h3>
+    <div>Respuesta de registro: <strong>{{ result.class }}</strong></div>
+    <div>Estado: <strong>{{ result.Respuesta }}</strong></div>
+    
+    <div id='button'>
+      <form action="/">
+        <input type=submit value='Regresar al Inicio' class="btn btn-primary">
+      </form>
+    </div>  
+  </body>
+</html>
+

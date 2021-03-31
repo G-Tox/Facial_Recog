@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width = device-width, initial-scale=1.0">
+    <script src="{{ url_for('static',filename='js/jqueryajax.js')}}" ></script> 
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <title>Reconocimiento Facial</title>
+    <style type="text/css">
+    /* Flipping the video as it was not mirror view */
+    video {
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        margin-top: 5px;
+    }
+
+    /* Flipping the canvas image as it was not mirror view */
+    #canvas {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+    }
+    </style>
+</head>
+<body>
+
+<div class="jumbotron" style="margin-top:20px;padding:20px;">
+    <p><span id="errorMsg"></span></p>
+    <div class="row">
+        <div>
+            <form action="/">
+                <input class='btn-be' type=submit value='Volver al inicio'>
+            </form>
+        </div>
+
+        <div class="col-lg-6">
+            <!-- Here we streaming video from webcam -->
+            <h4>
+                Video  <button class="btn btn-primary" id="btnCapture">Capturar Imagen</button>
+            </h4>
+            <video id="video" playsinline autoplay></video>
+        </div>
+
+        <div class="col-lg-6">
+            <h4>
+                Imagen Capturada <input type="button" class="btn btn-primary" id="btnSave" name="btnSave" value="Enviar" />
+            </h4>
+            <!-- Webcam video snapshot -->
+            <canvas style="border:solid 1px #ddd;background-color:white;" id="canvas" width="475" height="475"></canvas>
+        </div> 
+    </div>
+</div>
+
+<script src="{{ url_for('static',filename='js/jquery.js')}}" ></script>  
+<script src="{{ url_for('static',filename='js/camara.js')}}" ></script> 
+</body>
+</html>

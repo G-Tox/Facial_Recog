@@ -1,0 +1,30 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>Resultados de reconocimiento</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    
+    <h3>Persona</h3>
+
+    <div id='button'>
+      <form action="/">
+        <input class='btn-be' type=submit value='Regresar al Inicio'>
+      </form>
+    </div>
+    
+    <div class="container">
+      <div class="foto">
+        <img src="data:image/png;base64,{{ result.image_path }}" class="img-rounded" width="300" height="300"/>
+      </div>
+    </div>
+
+    <div>Advertencia: <strong>{{ result.DNI }}</strong></div>
+    
+    
+  
+  </body>
+</html>
+
