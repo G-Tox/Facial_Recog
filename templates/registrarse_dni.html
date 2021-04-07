@@ -18,6 +18,26 @@ input[type=text], select {
   box-sizing: border-box;
 }
 
+input[type=number], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=file], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
 input[type=submit] {
   width: 100%;
   background-color: #4CAF50;
@@ -33,19 +53,62 @@ input[type=submit]:hover {
   background-color: #45a049;
 }
 
-div {
+.princ {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
 }
+.Ventana{
+  background-color: hsl(94, 76%, 41%);
+  width: 80%;
+  color: black;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  text-align: center;
+  padding: 15px;
+  border-radius: 15px;
+}
+@media (min-width: 1024px){
+  .Ventana{
+  background-color: hsl(167, 42%, 52%);
+  width: 70%;
+  color: black;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  text-align: center;
+  padding: 15px;
+  min-height: 350px;
+  border-radius: 15px;
+  position: absolute;
+  left: 10%;
+  top: 20%;
+  display: none;
+}
+.enlace{
+  padding: 15px;
+}
+#cerrar{
+  position: absolute;
+  right: 15px;
+}
+
+}
+
+
 </style>
 
 </head>
 
 <body>
+  <div class="Ventana" id="vent">
+    <div id="cerrar"> <a href="javascript:cerrar()"><img src="{{ url_for('static',filename='imagenes/cancelar.png') }}" ></a> </div>
+    BIENVENIDOS
+  </div>
 
-
-  <div>
+  <div class="princ">
+    <div class="enlace">
+      <a href="javascript:abrir()">Ver indicaciones</a>
+    </div>
   <form action="/charge_dni" method="POST" class="form-inline tm-search-form" enctype="multipart/form-data">
     <label for="fname">Primer Nombre</label>
     <input type="text" id="fname" name="nombre_p" placeholder="Tu primer nombre ..." required>
@@ -68,11 +131,22 @@ div {
     <input type="submit" value="Enviar">
   </form>
 </div>
-<div>
+<div class="princ">
   <form action="/" class="form-inline tm-search-form">
     <input class='btn-be' type=submit value='Regresar al Inicio'>
   </form>
 </div>
-<div><strong>{{ result.img_format }}</strong></div>
+<div class="princ"><strong>{{ result.img_format }}</strong></div>
+
+
+<script>
+  function abrir(){
+    document.getElementById("vent").style.display="block";
+  }
+  function cerrar(){
+    document.getElementById("vent").style.display="none";
+  }
+</script>
+
 </body>
 </html>
